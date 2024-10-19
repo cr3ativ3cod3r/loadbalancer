@@ -1,9 +1,16 @@
-function decodeBase64() {
-    const base64Input = document.getElementById('base64-input').value;
-    try {
-        const decodedString = atob(base64Input);
-        document.getElementById('decoded-output').textContent = decodedString;
-    } catch (error) {
-        document.getElementById('decoded-output').textContent = 'Invalid Base64 string';
-    }
+function decodeClue() {
+    const encryptedClue = document.getElementById('clue-input').value;
+    const key = 3;
+    document.getElementById('decoded-output').textContent = treasureCipher(encryptedClue, -key);
+}
+
+function treasureCipher(clue, key) {
+    return clue.split('').map(char => {
+        if (char.match(/[a-z]/i)) {
+            const charCode = char.charCodeAt(0);
+            const base = charCode >= 97 ? 97 : 65;
+            return String.fromCharCode(((charCode - base + key) % 26 + 26) % 26 + base);
+        }
+        return char;
+    }).join('');
 }
