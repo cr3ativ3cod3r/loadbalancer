@@ -21,6 +21,7 @@ h1 {
 pre {
     background: #f0f0f0;
     padding: 10px;
+    height: 30px;
     border-radius: 4px;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -60,3 +61,4 @@ button:hover {
 
 
 /* Hey bats, I have heard a joke same colours doesn't get along with each other  */
+
